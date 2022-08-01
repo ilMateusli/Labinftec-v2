@@ -10,7 +10,7 @@ tokenizer = AutoTokenizer.from_pretrained("bigscience/bloom-1b3")
 
 set_seed(424242)
 
-model.__class__.__name__
+#model.__class__.__name__
 
 #prompt = ''
 
