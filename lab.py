@@ -1,6 +1,6 @@
 import streamlit as st
-from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
-import torch
+#from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
+#import torch
 import re
 
 torch.set_default_tensor_type(torch.cuda.FloatTensor)
