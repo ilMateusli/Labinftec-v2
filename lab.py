@@ -5,12 +5,12 @@ import re
 
 torch.set_default_tensor_type(torch.cuda.FloatTensor)
 
-#model = AutoModelForCausalLM.from_pretrained("bigscience/bloom-1b3", use_cache=True)
-#tokenizer = AutoTokenizer.from_pretrained("bigscience/bloom-1b3")
+model = AutoModelForCausalLM.from_pretrained("bigscience/bloom-1b3", use_cache=True)
+tokenizer = AutoTokenizer.from_pretrained("bigscience/bloom-1b3")
 
-#set_seed(424242)
+set_seed(424242)
 
-#model.__class__.__name__
+model.__class__.__name__
 
 #prompt = ''
 
@@ -18,7 +18,7 @@ torch.set_default_tensor_type(torch.cuda.FloatTensor)
 
 
 
-st.title("Labinftec")
+st.title("Labinftec1")
 
 #keyopenai = st.text_input("Coloque a chave da OpenAI aqui", "")
 texto0 = st.text_area("Escreva sintomas causados por algum vírus, ou o nome dele.", "")
