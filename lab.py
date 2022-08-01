@@ -3,12 +3,25 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
 import torch
 import re
 
-torch.set_default_tensor_type(torch.cuda.FloatTensor)
+#torch.set_default_tensor_type(torch.cuda.FloatTensor)
 
-model = AutoModelForCausalLM.from_pretrained("bigscience/bloom-1b3", use_cache=True)
-tokenizer = AutoTokenizer.from_pretrained("bigscience/bloom-1b3")
+#model = AutoModelForCausalLM.from_pretrained("bigscience/bloom-1b3", use_cache=True)
+#tokenizer = AutoTokenizer.from_pretrained("bigscience/bloom-1b3")
 
-set_seed(424242)
+import requests
+
+API_URL = "https://api-inference.huggingface.co/models/bigscience/bloom"
+headers = {"Authorization": f"Bearer {API_TOKEN}"}
+
+def query(payload):
+	response = requests.post(API_URL, headers=headers, json=payload)
+	return response.json()
+	
+output = query({
+	"inputs": "Can you please let us know more details about your ",
+})
+
+#set_seed(424242)
 
 #model.__class__.__name__
 
