@@ -1,5 +1,1 @@
-torch
-Pillow
-urllib3
 streamlit
-transformers
