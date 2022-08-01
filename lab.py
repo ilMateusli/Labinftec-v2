@@ -36,7 +36,7 @@ if st.button("Detalhar"):
         st.write("Você precisa escrever algo na caixa de texto.")
     else: 
         
-        prompt = "Lista:\n"+texto_quebrado+"\n'''\nFale sobre as características do vírus da lista (nome científico ou a qual família pertence, envelope, diametro, se é RNA ou DNA, sua replicação, informações do genoma, em qual hospedeiro parasita - animais, planta, bacterias, fungos etc, qual sua classe/tamanho), se for sintomas, escolha o vírus que mais se aproxima aos sintomas dados na lista e mostre os motivos da escolha:
+        prompt = "Lista:\n"+texto_quebrado+"\n'''\nFale sobre as características do vírus da lista (nome científico ou a qual família pertence, envelope, diametro, se é RNA ou DNA, sua replicação, informações do genoma, em qual hospedeiro parasita - animais, planta, bacterias, fungos etc, qual sua classe/tamanho), se for sintomas, escolha o vírus que mais se aproxima aos sintomas dados na lista e mostre os motivos da escolha:\n\n'''
         texto = tokenizer.decode(sample[0], truncate_before_pattern=[r"\n\n^#", "^'''", "\n\n\n"])
         t.write("Detalhes obtidos:")
         padrao = re.compile(r'\w+[dae]$')
