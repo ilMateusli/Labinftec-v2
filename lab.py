@@ -2,8 +2,6 @@ import streamlit as st
 from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
 import torch
 import re
-import urllib.request
-from PIL import Image
 
 torch.set_default_tensor_type(torch.cuda.FloatTensor)
 model = AutoModelForCausalLM.from_pretrained("bigscience/bloom-1b3", use_cache=True)
@@ -44,22 +42,7 @@ if st.button("Detalhar"):
         link = 'https://www.gettyimages.com.br/fotos/' #-
         link2 ='-virus?assettype=image&phrase'
 
-        def pesquisar(familia):
-            url = link + familia + link2
-            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-            html = urllib.request.urlopen(req).read()
 
-            for i in re.findall(r'<img.*?src="(.*?)"', str(html)):
-                if i.startswith('http') and not i.endswith('.gif'):
-                    urllib.request.urlretrieve(i, 'imagem.jpg')
-                    break
-        if len(familia) == 0:
-            st.write("Não foi possível encontrar uma imagem para mostrar.")
-        else:
-            pesquisar(familia[0])
-            st.image('imagem.jpg', use_column_width=True)
-            os.remove('imagem.jpg')
-            st.write("Imagem do vírus encontrado pela internet.")
             
         content = texto
         explicação0 = "Lista:\n"+texto_quebrado+"\n'''\nDescreva os vírus da lista:\n\n"+content+"\nCite vírus relacionado e explique: Além desse,",
