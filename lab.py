@@ -1,21 +1,20 @@
 import streamlit as st
 import os
 import openai
-import re
-import urllib.request
-from PIL import Image
+
 
 openai.api_key = ""
 
-st.title("Labinftec APP - Detalhar")
-texto = st.text_area("Escreva sintomas causados por algum vírus, ou o nome dele.", "")
-keyopenai = st.text_input("Coloque a chave da OpenAI aqui", "")
+st.title("Mateus - IA")
+st.write("O bot não tem memória, ele só irá responder a pergunta")
+texto = st.text_area("Faça uma pergunta para mim.", "")
+keyopenai = "sk-"+st.text_input("Copie o código que está aí em cima e cole aqui:", "")
 
 if keyopenai != "":
     openai.api_key = keyopenai
 
-texto_quebrado = texto.replace(',', '\n')
-if st.button("Detalhar"):
+
+if st.button("Responder"):
     if texto == "":
         st.write("Você precisa escrever algo na caixa de texto.")
     else: 
